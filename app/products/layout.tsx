@@ -1,6 +1,6 @@
 import {ReactNode} from "react";
 
-const ProductListLayout = ({children}: {children: ReactNode}) => {
+const Layout = ({children}: {children: ReactNode}) => {
     return (
         <section>
             {children}
@@ -8,4 +8,4 @@ const ProductListLayout = ({children}: {children: ReactNode}) => {
     )
 }
 
-export default ProductListLayout;
+export default Layout;

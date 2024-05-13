@@ -32,7 +32,9 @@ const ProductListPage = async ({searchParams}: { searchParams: Record<string, st
                     products.map(product => <ProductTile key={product.id} product={product} />)
                 }
             </Grid>
-            <Pagination count={pages} page={+page} />
+            <Box display="flex" justifyContent="flex-end">
+                <Pagination count={pages} page={+page} />
+            </Box>
         </Box>
     );
 };

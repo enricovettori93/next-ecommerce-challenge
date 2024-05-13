@@ -13,7 +13,7 @@ async function getProductDetail(id: Product["id"]) {
     return await betterFetch<Product>(`${BE_URL}/products/${id}`);
 }
 
-const ProductDetailPage = async ({ params }: params) => {
+const Page = async ({ params }: params) => {
     const product = await getProductDetail(+params.id);
 
     return (
@@ -23,4 +23,4 @@ const ProductDetailPage = async ({ params }: params) => {
     );
 };
 
-export default ProductDetailPage;
+export default Page;

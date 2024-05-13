@@ -1,4 +1,4 @@
-const ProductsPageLoader = () => {
+const Loading = () => {
     return (
         <div>
             Loading products...
@@ -6,4 +6,4 @@ const ProductsPageLoader = () => {
     );
 };
 
-export default ProductsPageLoader;
+export default Loading;

@@ -2,7 +2,7 @@
 
 const Error = () => {
     return (
-        <p>Error occurred fetching product detail</p>
+        <p>Cart error</p>
     );
 };
 

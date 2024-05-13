@@ -8,6 +8,10 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import 'swiper/css';
+import Header from "@/app/_components/header";
+import UiContextProvider from "@/contexts/ui.context";
+import Box from "@mui/material/Box";
+import SlideCart from "@/app/_components/slide-cart";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,9 +28,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-      <CartContextProvider>
-          {children}
-      </CartContextProvider>
+      <UiContextProvider>
+          <CartContextProvider>
+              <Header />
+              <SlideCart />
+              <Box p={3}>
+                  {children}
+              </Box>
+          </CartContextProvider>
+      </UiContextProvider>
       </body>
     </html>
   );

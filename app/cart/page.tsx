@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Loading = () => {
+const Page = () => {
     return (
         <div>
-            Loading product...
+            cart page!
         </div>
     );
 };
 
-export default Loading;
+export default Page;

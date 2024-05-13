@@ -3,13 +3,13 @@
 import {Product} from "@/models";
 import {createContext, ReactNode, useState} from "react";
 
-interface ContextShape {
+interface CartContextShape {
     products: Product[]
     addProduct: (p: Product) => void
     removeProduct: (id: Product["id"]) => void
 }
 
-const initialValue: ContextShape = {
+const initialValue: CartContextShape = {
     products: [],
     addProduct: () => {},
     removeProduct: id => {}

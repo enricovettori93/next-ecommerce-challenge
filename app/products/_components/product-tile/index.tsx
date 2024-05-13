@@ -10,6 +10,8 @@ import {Typography} from "@mui/material";
 import ProductPrice from "@/components/product-price";
 import TileImageCarousel from "@/app/products/_components/product-tile/image-carousel";
 import ProductCartActions from "@/components/product-cart-actions";
+// import dynamic from "next/dynamic";
+// const TileImageCarousel = dynamic(import("@/app/products/_components/product-tile/image-carousel"), {ssr: false});
 
 interface props {
     product: Product
@@ -21,22 +23,24 @@ const ProductTile = ({product}: props) => {
     const isInCart = products.some(p => p.id === product.id);
 
     return (
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={4} lg={3}>
             <Link href={`/products/${product.id}`}>
                 <TileImageCarousel images={product.images}/>
-                <Box display="flex" flexDirection="column" gap={1}>
-                    <Typography variant="body1" component="span">
-                        {product.title}
-                    </Typography>
+                <Box display="flex" flexDirection="column" p={2}>
+                    <Box display="flex" justifyContent="space-between" alignItems="center" >
+                        <Typography variant="body1" component="span">
+                            {product.title}
+                        </Typography>
+                        <ProductCartActions
+                            product={product}
+                            isInCart={isInCart}
+                            onAddToCart={addProduct}
+                            onRemoveFromCart={removeProduct}
+                        />
+                    </Box>
                     <ProductPrice product={product}/>
                 </Box>
             </Link>
-            <ProductCartActions
-                product={product}
-                isInCart={isInCart}
-                onAddToCart={addProduct}
-                onRemoveFromCart={removeProduct}
-            />
         </Grid>
     );
 };

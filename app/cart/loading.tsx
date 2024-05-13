@@ -2,9 +2,7 @@ import React from 'react';
 
 const Loading = () => {
     return (
-        <div>
-            Loading product...
-        </div>
+        <p>Loading cart...</p>
     );
 };
 

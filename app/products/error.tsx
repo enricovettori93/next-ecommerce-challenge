@@ -1,9 +1,9 @@
 "use client"
 
-const ProductsErrorPage = () => {
+const Error = () => {
     return (
         <div>Error occurred displaying products</div>
     );
 };
 
-export default ProductsErrorPage;
+export default Error;
