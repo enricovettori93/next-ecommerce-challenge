@@ -10,8 +10,6 @@ const useClickOutside = (ref: RefObject<any>, cb: Function) => {
             if (!target || !target.isConnected) return;
 
             if (ref.current && !ref.current.contains(target)) {
-                e.preventDefault();
-                e.stopPropagation();
                 cb();
             }
         }

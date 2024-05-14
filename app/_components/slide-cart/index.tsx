@@ -10,8 +10,10 @@ import {UiContext} from "@/contexts/ui.context";
 import classNames from "classnames";
 import useEscListener from "@/hooks/useEscListener";
 import useClickOutside from "@/hooks/useClickOutside";
+import {useRouter} from "next/navigation";
 
 const SlideCart = () => {
+    const router = useRouter();
     const slideCartRef = useRef();
     const {cart, closeCart} = useContext(UiContext);
     const {products, removeProduct} = useContext(CartContext);
@@ -23,18 +25,25 @@ const SlideCart = () => {
     useEscListener(closeCart);
     useClickOutside(slideCartRef, closeCart);
 
+    // todo: this logic should be moved in a custom hook like useRouteChange
+    const handleGoToCart = (e: any) => {
+        e.preventDefault();
+        closeCart();
+        router.push("/cart");
+    }
+
     return (
-        <Box className={classes} p={3} ref={slideCartRef}>
+        <Box className={classes} p={3} ref={slideCartRef} display="flex" flexDirection="column">
             <Button className="slide-cart-close" onClick={closeCart}>Chiudi</Button>
             {
                 products.length > 0 && (
                     <>
-                        <Typography variant="body1" component="span">
+                        <Typography variant="body1" component="span" mb={3}>
                             Shopping bag ({products.length}) prodotto/i
                         </Typography>
                         {
                             products.map(product => (
-                                <Box key={product.id}>
+                                <Box key={product.id} display="flex" justifyContent="space-between">
                                     <Typography variant="body1" component="span">
                                         {product.title}
                                     </Typography>
@@ -42,7 +51,7 @@ const SlideCart = () => {
                                 </Box>
                             ))
                         }
-                        <Link href="/cart">Procedi all'acquisto</Link>
+                        <Link onClick={handleGoToCart} style={{marginTop: "auto"}} href="/cart">Procedi all'acquisto</Link>
                     </>
                 )
             }
