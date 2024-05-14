@@ -2,6 +2,7 @@
 
 import {Product} from "@/models";
 import {createContext, ReactNode, useState} from "react";
+import {toast} from "react-toastify";
 
 interface CartContextShape {
     products: Product[]
@@ -22,10 +23,12 @@ const CartContextProvider = ({children}: {children: ReactNode}) => {
 
     const addProduct = (p: Product) => {
         setProducts(prev => [...prev, p]);
+        toast.success("Prodotto aggiunto al carrello");
     }
 
     const removeProduct = (id: Product["id"]) => {
         setProducts(prev => prev.filter(item => item.id !== id));
+        toast.info("Prodotto rimosso dal carrello");
     }
 
     return (

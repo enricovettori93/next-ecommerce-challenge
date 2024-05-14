@@ -12,6 +12,9 @@ import Header from "@/app/_components/header";
 import UiContextProvider from "@/contexts/ui.context";
 import Box from "@mui/material/Box";
 import SlideCart from "@/app/_components/slide-cart";
+import Footer from "@/app/_components/footer";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,9 +35,11 @@ export default function RootLayout({
           <CartContextProvider>
               <Header />
               <SlideCart />
-              <Box p={3}>
+              <Box className="main-container" px={3}>
                   {children}
               </Box>
+              <ToastContainer pauseOnHover={false} />
+              <Footer />
           </CartContextProvider>
       </UiContextProvider>
       </body>

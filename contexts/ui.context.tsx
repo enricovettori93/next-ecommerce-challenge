@@ -25,7 +25,7 @@ const UiContextProvider = ({children}: {children: ReactNode}) => {
 
     useEffect(() => {
         if (root) {
-            root.style.overflow = cart ? "hidden" : "initial";
+            root.style.overflowY = cart ? "hidden" : "auto";
         }
     }, [cart, root]);
 
@@ -42,7 +42,6 @@ const UiContextProvider = ({children}: {children: ReactNode}) => {
     }
 
     const shouldShowOverlay = () => {
-        console.log(cart)
         return cart;
     }
 

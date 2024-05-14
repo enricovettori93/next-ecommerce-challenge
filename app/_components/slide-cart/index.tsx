@@ -38,7 +38,7 @@ const SlideCart = () => {
                                     <Typography variant="body1" component="span">
                                         {product.title}
                                     </Typography>
-                                    <ProductCartActions onRemoveFromCart={removeProduct} product={product} isInCart={true} />
+                                    <ProductCartActions onRemoveFromCart={removeProduct} product={product} isInCart={true} onlyIcons={true} />
                                 </Box>
                             ))
                         }

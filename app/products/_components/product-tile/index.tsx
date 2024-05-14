@@ -8,10 +8,8 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import {Typography} from "@mui/material";
 import ProductPrice from "@/components/product-price";
-import TileImageCarousel from "@/app/products/_components/product-tile/image-carousel";
 import ProductCartActions from "@/components/product-cart-actions";
-// import dynamic from "next/dynamic";
-// const TileImageCarousel = dynamic(import("@/app/products/_components/product-tile/image-carousel"), {ssr: false});
+import TileImageCarousel from "@/app/products/_components/product-tile/tile-image-carousel";
 
 interface props {
     product: Product
@@ -34,6 +32,7 @@ const ProductTile = ({product}: props) => {
                         <ProductCartActions
                             product={product}
                             isInCart={isInCart}
+                            onlyIcons={true}
                             onAddToCart={addProduct}
                             onRemoveFromCart={removeProduct}
                         />
