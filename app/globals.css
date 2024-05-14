@@ -42,3 +42,11 @@ body {
     top: 0;
     right: 0;
 }
+
+.overlay {
+    background: white;
+    position: fixed;
+    inset: 0;
+    opacity: .7;
+    z-index: 8;
+}

@@ -1,25 +1,31 @@
 "use client"
 
 import Box from "@mui/material/Box";
-import React, {useContext} from "react";
+import React, {useContext, useRef} from "react";
 import {CartContext} from "@/contexts/cart.context";
 import ProductCartActions from "@/components/product-cart-actions";
 import {Button, Typography} from "@mui/material";
 import Link from "next/link";
 import {UiContext} from "@/contexts/ui.context";
 import classNames from "classnames";
+import useEscListener from "@/hooks/useEscListener";
+import useClickOutside from "@/hooks/useClickOutside";
 
 const SlideCart = () => {
-    const {cart, toggleCart} = useContext(UiContext);
+    const slideCartRef = useRef();
+    const {cart, closeCart} = useContext(UiContext);
     const {products, removeProduct} = useContext(CartContext);
     const classes = classNames({
         "slide-cart": true,
         "slide-cart__open": cart
     });
 
+    useEscListener(closeCart);
+    useClickOutside(slideCartRef, closeCart);
+
     return (
-        <Box className={classes} p={3}>
-            <Button className="slide-cart-close" onClick={toggleCart}>Chiudi</Button>
+        <Box className={classes} p={3} ref={slideCartRef}>
+            <Button className="slide-cart-close" onClick={closeCart}>Chiudi</Button>
             {
                 products.length > 0 && (
                     <>
