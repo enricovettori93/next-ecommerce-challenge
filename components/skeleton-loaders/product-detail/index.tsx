@@ -1,7 +1,7 @@
 import React from 'react';
 import {Skeleton} from "@mui/material";
 import Box from "@mui/material/Box";
-import ProductDetailLayout from '@/app/products/[id]/_components/layout';
+import ProductDetailLayout from '@/app/[category]/[id]/_components/layout';
 
 const ProductDetailLoader = () => {
     return (

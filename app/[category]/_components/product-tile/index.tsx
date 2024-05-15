@@ -8,8 +8,8 @@ import Box from "@mui/material/Box";
 import {Typography} from "@mui/material";
 import ProductPrice from "@/components/product-price";
 import ProductCartActions from "@/components/product-cart-actions";
-import TileImageCarousel from "@/app/products/_components/product-tile/tile-image-carousel";
-import ProductTileContainer from "@/app/products/_components/tile-container";
+import TileImageCarousel from "@/app/[category]/_components/product-tile/tile-image-carousel";
+import ProductTileContainer from "@/app/[category]/_components/tile-container";
 
 interface props {
     product: Product

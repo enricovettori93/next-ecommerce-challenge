@@ -8,7 +8,7 @@ import {useContext} from "react";
 import {CartContext} from "@/contexts/cart.context";
 import Typography from "@mui/material/Typography";
 import {Chip} from "@mui/material";
-import ProductAccordion from "@/app/products/[id]/_components/product-detail/accordion/productAccordion";
+import ProductAccordion from "@/app/[category]/[id]/_components/product-detail/accordion/productAccordion";
 
 interface props {
     product: Product

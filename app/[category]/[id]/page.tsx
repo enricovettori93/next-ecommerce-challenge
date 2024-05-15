@@ -2,9 +2,9 @@ import React from 'react';
 import {Product} from "@/models";
 import betterFetch from "@/utils/betterFetch";
 import {BE_URL} from "@/utils/constants";
-import ProductGallery from "@/app/products/[id]/_components/product-gallery";
-import ProductDetail from "@/app/products/[id]/_components/product-detail";
-import ProductDetailLayout from "@/app/products/[id]/_components/layout";
+import ProductGallery from "@/app/[category]/[id]/_components/product-gallery";
+import ProductDetail from "@/app/[category]/[id]/_components/product-detail";
+import ProductDetailLayout from "@/app/[category]/[id]/_components/layout";
 
 interface params {
     params: {

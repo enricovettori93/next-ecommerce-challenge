@@ -21,3 +21,5 @@ export interface ProductListResponse extends Pagination {
     products: Product[]
     total: number
 }
+
+export type CategoryListResponse = string[];

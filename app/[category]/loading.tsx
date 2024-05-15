@@ -1,4 +1,4 @@
-import ProductTileContainer from "@/app/products/_components/tile-container";
+import ProductTileContainer from "@/app/[category]/_components/tile-container";
 import Grid from "@mui/material/Grid";
 import React from "react";
 import ProductListLoader from "@/components/skeleton-loaders/product-list";
