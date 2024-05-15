@@ -4,12 +4,12 @@ import {Product} from "@/models";
 import Link from "next/link";
 import React, {useContext} from "react";
 import {CartContext} from "@/contexts/cart.context";
-import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import {Typography} from "@mui/material";
 import ProductPrice from "@/components/product-price";
 import ProductCartActions from "@/components/product-cart-actions";
 import TileImageCarousel from "@/app/products/_components/product-tile/tile-image-carousel";
+import ProductTileContainer from "@/app/products/_components/tile-container";
 
 interface props {
     product: Product
@@ -21,7 +21,7 @@ const ProductTile = ({product}: props) => {
     const isInCart = products.some(p => p.id === product.id);
 
     return (
-        <Grid item xs={12} sm={6} md={4} lg={3}>
+        <ProductTileContainer>
             <Link href={`/products/${product.id}`}>
                 <TileImageCarousel images={product.images}/>
                 <Box display="flex" flexDirection="column" p={2}>
@@ -40,7 +40,7 @@ const ProductTile = ({product}: props) => {
                     <ProductPrice product={product}/>
                 </Box>
             </Link>
-        </Grid>
+        </ProductTileContainer>
     );
 };
 

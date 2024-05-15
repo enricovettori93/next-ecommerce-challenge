@@ -1,8 +1,19 @@
+import ProductTileContainer from "@/app/products/_components/tile-container";
+import Grid from "@mui/material/Grid";
+import React from "react";
+import ProductListLoader from "@/components/skeleton-loaders/product-list";
+
 const Loading = () => {
     return (
-        <div>
-            Loading products...
-        </div>
+        <Grid container spacing={2}>
+            {
+                Array(10).fill(0).map((_, idx) =>
+                    <ProductTileContainer key={idx}>
+                        <ProductListLoader />
+                    </ProductTileContainer>
+                )
+            }
+        </Grid>
     );
 };
 

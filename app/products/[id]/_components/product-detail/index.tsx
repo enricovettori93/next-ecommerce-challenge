@@ -20,7 +20,7 @@ const ProductDetail = ({product}: props) => {
     const isInCart = products.some(p => p.id === product.id);
 
     return (
-        <Box display="flex" flexDirection="column" position="sticky" top="0" alignSelf="flex-start" px={{md: 2}}>
+        <Box display="flex" flexDirection="column" position="sticky" top="0" alignSelf="flex-start">
             <Typography variant="h2" component="h2" mb={4}>
                 {brand}
             </Typography>

@@ -1,10 +1,8 @@
-import React from 'react';
+import ProductDetailLoader from "@/components/skeleton-loaders/product-detail";
 
 const Loading = () => {
     return (
-        <div>
-            Loading product...
-        </div>
+        <ProductDetailLoader />
     );
 };
 

@@ -4,7 +4,7 @@ import betterFetch from "@/utils/betterFetch";
 import {BE_URL} from "@/utils/constants";
 import ProductGallery from "@/app/products/[id]/_components/product-gallery";
 import ProductDetail from "@/app/products/[id]/_components/product-detail";
-import Grid from "@mui/material/Grid";
+import ProductDetailLayout from "@/app/products/[id]/_components/layout";
 
 interface params {
     params: {
@@ -20,14 +20,14 @@ const Page = async ({ params }: params) => {
     const product = await getProductDetail(+params.id);
 
     return (
-        <Grid container>
-            <Grid xs={12} md={8} item>
+        <>
+            <ProductDetailLayout.GallerySection>
                 <ProductGallery images={product.images} />
-            </Grid>
-            <Grid xs={12} md={4} item>
+            </ProductDetailLayout.GallerySection>
+            <ProductDetailLayout.DetailSection>
                 <ProductDetail product={product} />
-            </Grid>
-        </Grid>
+            </ProductDetailLayout.DetailSection>
+        </>
     );
 };
 

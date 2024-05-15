@@ -10,7 +10,7 @@ const CartProductList = () => {
     return (
         <Grid container>
             {
-                products.map(p => <ProductItem product={p} />)
+                products.map(p => <ProductItem key={p.id} product={p} />)
             }
         </Grid>
     );
