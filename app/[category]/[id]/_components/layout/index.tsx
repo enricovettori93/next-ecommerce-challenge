@@ -11,7 +11,7 @@ const GallerySection = ({children}: {children: ReactNode}) => {
 
 const DetailSection  = ({children}: {children: ReactNode}) => {
     return (
-        <Grid xs={12} md={4} item px={{md: 2}}>
+        <Grid xs={12} md={4} item px={{md: 2}} position="sticky" top={"20px"}>
             {children}
         </Grid>
     )

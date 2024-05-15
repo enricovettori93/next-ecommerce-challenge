@@ -43,7 +43,7 @@ const ProductListPage = async ({params, searchParams}: params) => {
                 }
             </Grid>
             <Box display="flex" justifyContent="flex-end">
-                <Pagination count={pages} page={+page} category={category} viewAll={!!viewAll} />
+                <Pagination count={pages} page={+page} category={category} additionalqueryparams={{viewAll}} />
             </Box>
         </>
     );

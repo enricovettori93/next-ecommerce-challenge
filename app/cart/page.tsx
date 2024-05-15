@@ -6,7 +6,6 @@ const Page = () => {
     return (
         <>
             <CartProductList />
-            <Button>Checkout</Button>
         </>
     );
 };

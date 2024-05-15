@@ -7,21 +7,22 @@ import {PaginationProps} from "@mui/material/Pagination/Pagination";
 
 interface props extends PaginationProps {
     category: string
-    viewAll: boolean
+    additionalqueryparams?: Record<string, any>
 }
 
 const Pagination = (props: props) => {
-    const {count = 1, category, viewAll} = props;
-    const hidePrevNextButtons = count <= 1;
+    const {count = 1, category, additionalqueryparams = {}, page} = props;
+    const hidePrevButton = count <= 1 || page === 1;
+    const hideNextButton = count <= 1 || page === count;
 
     return (
-        <MuiPagination hideNextButton={hidePrevNextButtons} hidePrevButton={hidePrevNextButtons} {...props} renderItem={(item) => {
+        <MuiPagination hideNextButton={hideNextButton} hidePrevButton={hidePrevButton} {...props} renderItem={(item) => {
             const queryParams: Record<string, any> = {
                 page: item.page
             }
 
-            if (viewAll) {
-                queryParams.viewAll = true;
+            if (additionalqueryparams) {
+                Object.assign(queryParams, additionalqueryparams);
             }
 
             return (

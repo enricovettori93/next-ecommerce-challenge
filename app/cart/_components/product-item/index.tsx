@@ -17,11 +17,11 @@ const CartProductItem = ({product}: props) => {
     const {addProduct, removeProduct} = useContext(CartContext);
 
     return (
-        <Grid container>
-            <Grid item>
+        <Grid container overflow="hidden">
+            <Grid item xs={4}>
                 <img className="cart__product-img" src={product.images[0]} alt=""/>
             </Grid>
-            <Grid item display="flex" flexDirection="column" p={2}>
+            <Grid item xs={8} display="flex" flexDirection="column" p={2}>
                 <Box display="flex" justifyContent="space-between" alignItems="center" >
                     <Typography variant="body1" component="span">
                         {product.title}

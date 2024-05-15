@@ -7,7 +7,7 @@ import ProductCartActions from "@/components/product-cart-actions";
 import {useContext} from "react";
 import {CartContext} from "@/contexts/cart.context";
 import Typography from "@mui/material/Typography";
-import {Chip} from "@mui/material";
+import {Chip, Rating} from "@mui/material";
 import ProductAccordion from "@/app/[category]/[id]/_components/product-detail/accordion/productAccordion";
 
 interface props {
@@ -30,11 +30,14 @@ const ProductDetail = ({product}: props) => {
             <Box mb={2}>
                 <ProductPrice product={product}/>
             </Box>
+            <Box mb={2}>
+                <Rating name="read-only" value={rating} readOnly />
+            </Box>
             <Box mb={2} display="flex" gap={1}>
                 <Chip label={category} color="info"/>
                 <Chip label={brand} color="success" />
             </Box>
-            <Box mb={2}>
+            <Box mb={5}>
                 <ProductCartActions
                     onlyIcons={false}
                     product={product}

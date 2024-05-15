@@ -12,8 +12,6 @@
 html,
 body {
   max-width: 100vw;
-  width: 100vw;
-  overflow-x: hidden;
 }
 
 header {
@@ -34,7 +32,6 @@ footer {
     bottom: 0;
     right: 0;
     left: 0;
-    background: aqua;
     z-index: -1;
 }
 
@@ -42,13 +39,24 @@ header > div {
     flex-grow: 1;
 }
 
-.header {
+header {
+    flex-direction: row !important;
     transform: translateY(0);
-    transition: transform .2s ease-in-out;
+    transition: all .2s ease-in-out !important;
 }
 
-.header__scrolling-down {
+header.header__scrolling-down {
     transform: translateY(-100%);
+}
+
+header button {
+    padding: 0 !important;
+    min-width: auto !important;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .main-container {
@@ -58,12 +66,6 @@ header > div {
     background: white;
 }
 
-.cart__actions {
-    display: flex;
-    padding: 0;
-    min-width: 0;
-}
-
 .slide-cart {
     position: fixed;
     top: 0;
@@ -71,9 +73,10 @@ header > div {
     height: 100vh;
     width: 60vw;
     background: white;
-    z-index: 9;
+    z-index: 1300;
     transform: translateX(100%);
     transition: transform .3s ease-in-out;
+    box-shadow: 0 0 89px -25px rgba(0,0,0,0.69);
 }
 
 @media screen and (max-width: 480px) {
@@ -97,7 +100,7 @@ header > div {
     position: fixed;
     inset: 0;
     opacity: .7;
-    z-index: 8;
+    z-index: 1200;
 }
 
 .product-detail__gallery-img {
@@ -106,5 +109,7 @@ header > div {
 }
 
 .cart__product-img {
-    width: 250px;
+    width: 100%;
+    max-height: 150px;
+    object-fit: cover;
 }

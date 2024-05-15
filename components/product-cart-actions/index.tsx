@@ -29,7 +29,7 @@ const ProductCartActions = ({product, onAddToCart, onRemoveFromCart, isInCart, o
         <Box>
             {
                 !isInCart && onAddToCart && (
-                    <Button disabled={loading} className="cart__actions" onClick={handleAddToCart}>
+                    <Button disabled={loading} onClick={handleAddToCart} variant="contained">
                         {!onlyIcons && (
                             <Typography variant="body1" component="span" mr={2}>
                                 Aggiungi al carrello
@@ -41,7 +41,7 @@ const ProductCartActions = ({product, onAddToCart, onRemoveFromCart, isInCart, o
             }
             {
                 isInCart && onRemoveFromCart && (
-                    <Button disabled={loading} className="cart__actions" onClick={handleRemoveFromCart}>
+                    <Button disabled={loading} onClick={handleRemoveFromCart} variant="contained">
                         {!onlyIcons && (
                             <Typography variant="body1" component="span" mr={2}>
                                 Rimuovi dal carrello

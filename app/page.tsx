@@ -4,6 +4,7 @@ import {CategoryListResponse} from "@/models";
 import {BE_URL} from "@/utils/constants";
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
+import {Typography} from "@mui/material";
 
 async function getCategories() {
     return betterFetch<CategoryListResponse>(`${BE_URL}/products/categories`);
@@ -15,6 +16,9 @@ export default async function Home() {
     return (
         <main>
             <List>
+                <Typography variant="h3" component="h2">
+                    Categorie
+                </Typography>
                 {
                     categories.map(cat => (
                         <ListItem key={cat}>

@@ -11,6 +11,7 @@ import classNames from "classnames";
 import useEscListener from "@/hooks/useEscListener";
 import useClickOutside from "@/hooks/useClickOutside";
 import {useRouter} from "next/navigation";
+import CloseIcon from '@mui/icons-material/Close';
 
 const SlideCart = () => {
     const router = useRouter();
@@ -34,24 +35,28 @@ const SlideCart = () => {
 
     return (
         <Box className={classes} p={3} ref={slideCartRef} display="flex" flexDirection="column">
-            <Button className="slide-cart-close" onClick={closeCart}>Chiudi</Button>
+            <Button className="slide-cart-close" onClick={closeCart}>
+                <CloseIcon />
+            </Button>
             {
                 products.length > 0 && (
                     <>
-                        <Typography variant="body1" component="span" mb={3}>
+                        <Typography variant="h5" component="span" mb={3}>
                             Shopping bag ({products.length}) prodotto/i
                         </Typography>
-                        {
-                            products.map(product => (
-                                <Box key={product.id} display="flex" justifyContent="space-between">
-                                    <Typography variant="body1" component="span">
-                                        {product.title}
-                                    </Typography>
-                                    <ProductCartActions onRemoveFromCart={removeProduct} product={product} isInCart={true} onlyIcons={true} />
-                                </Box>
-                            ))
-                        }
-                        <Link onClick={handleGoToCart} style={{marginTop: "auto"}} href="/cart">Procedi all'acquisto</Link>
+                        <Box display="flex" gap={2} flexDirection="column">
+                            {
+                                products.map(product => (
+                                    <Box key={product.id} display="flex" justifyContent="space-between">
+                                        <Typography variant="body1" component="span">
+                                            {product.title}
+                                        </Typography>
+                                        <ProductCartActions onRemoveFromCart={removeProduct} product={product} isInCart={true} onlyIcons={true} />
+                                    </Box>
+                                ))
+                            }
+                        </Box>
+                        <Link onClick={handleGoToCart} style={{marginTop: "auto", marginLeft: "auto"}} href="/cart">Vai al carrello</Link>
                     </>
                 )
             }
