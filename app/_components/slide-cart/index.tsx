@@ -44,10 +44,10 @@ const SlideCart = () => {
                         <Typography variant="h5" component="span" mb={3}>
                             Shopping bag ({products.length}) prodotto/i
                         </Typography>
-                        <Box display="flex" gap={2} flexDirection="column">
+                        <Box display="flex" gap={2} flexDirection="column" className="slide-cart__products">
                             {
                                 products.map(product => (
-                                    <Box key={product.id} display="flex" justifyContent="space-between">
+                                    <Box key={product.id} display="flex" justifyContent="space-between" className="slide-cart__products-product">
                                         <Typography variant="body1" component="span">
                                             {product.title}
                                         </Typography>

@@ -17,7 +17,7 @@ const CartProductItem = ({product}: props) => {
     const {addProduct, removeProduct} = useContext(CartContext);
 
     return (
-        <Grid container overflow="hidden">
+        <Grid container overflow="hidden" className="cart-item">
             <Grid item xs={4}>
                 <img className="cart__product-img" src={product.images[0]} alt=""/>
             </Grid>

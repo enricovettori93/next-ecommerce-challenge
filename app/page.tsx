@@ -15,10 +15,10 @@ export default async function Home() {
 
     return (
         <main>
+            <Typography variant="h3" component="h2">
+                Categorie
+            </Typography>
             <List>
-                <Typography variant="h3" component="h2">
-                    Categorie
-                </Typography>
                 {
                     categories.map(cat => (
                         <ListItem key={cat}>
